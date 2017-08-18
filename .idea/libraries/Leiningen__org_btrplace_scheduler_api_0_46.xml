@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.btrplace/scheduler-api:0.46">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/btrplace/scheduler-api/0.46/scheduler-api-0.46.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
