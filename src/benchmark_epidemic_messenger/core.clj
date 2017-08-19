@@ -1,4 +1,5 @@
 (ns benchmark-epidemic-messenger.core
+  (:gen-class)
   (require [onyx.messaging.aeron.epidemic-messenger :refer [build-aeron-epidemic-messenger]]
            [clojure.core.async :refer [chan]]))
 
@@ -15,7 +16,8 @@
                      :onyx.peer/subscriber-liveness-timeout-ms 500
                      :onyx.peer/publisher-liveness-timeout-ms 500
                      :onyx.messaging/impl :aeron}
-        epidemic-channels (repeat 100 (chan 100))
-        messenger-list (doall (map #(build-aeron-epidemic-messenger peer-config nil nil %) epidemic-channels))]
+        epidemic-channel (chan 100)
+        messenger-list (build-aeron-epidemic-messenger peer-config nil nil epidemic-channel)]
+
 
     (println "helloo")))
