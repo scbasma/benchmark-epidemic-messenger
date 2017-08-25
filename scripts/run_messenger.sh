@@ -25,4 +25,4 @@ XMX=$(awk '{printf("%d",$1*$2/1024^2)}' <<< " ${MEM} ${JVM_PEER_HEAP_RATIO} ")
 /usr/bin/java $PEER_JAVA_OPTS \
               "-Xmx${XMX}m" \
               -cp /opt/benchmark-epidemic.jar \
-              benchmark_epidemic_messenger.core
+              benchmark_epidemic_messenger.core "$BIND_ADDR" :p docker

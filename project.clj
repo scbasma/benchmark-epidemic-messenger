@@ -7,7 +7,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/core.async "0.3.443"]
                  [org.onyxplatform/onyx "0.10.0-epidemics"]
-                 [org.onyxplatform/lib-onyx "0.10.0.0"]]
+                 [org.onyxplatform/lib-onyx "0.10.0.0"]
+                 [aysylu/loom "1.0.0"]]
 
   :profiles {:uberjar {:aot [lib-onyx.media-driver
                            benchmark-epidemic-messenger.core]
