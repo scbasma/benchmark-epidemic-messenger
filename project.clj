@@ -8,6 +8,7 @@
                  [org.clojure/core.async "0.3.443"]
                  [org.onyxplatform/onyx "0.10.0-epidemics"]
                  [org.onyxplatform/lib-onyx "0.10.0.0"]
+                 [net.mikera/core.matrix.stats "0.7.0"]
                  [aysylu/loom "1.0.0"]]
 
   :profiles {:uberjar {:aot [lib-onyx.media-driver

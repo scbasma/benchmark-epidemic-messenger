@@ -5,6 +5,7 @@
            [loom.graph :refer [weighted-digraph edges nodes]]
            [loom.alg :refer [all-pairs-shortest-paths]]
            [loom.io :refer [view]]
+           [clojure.core.matrix.stats :refer [variance]]
            [clojure.core.async :refer [chan <!! close!]]
            [onyx.messaging.aeron.embedded-media-driver :as em]
            [com.stuartsierra.component :as component]))
@@ -52,11 +53,13 @@
   (let [degree-d-fn (partial degree-distribution peers)
         degree-distribution (map degree-d-fn peers)]
     {:avg-in-degree (float (/ (reduce #(+ %1 (:in-degree %2)) 0 degree-distribution ) (count degree-distribution)))
-     :avg-out-degree (float (/ (reduce #(+ %1 (:out-degree %2)) 0 degree-distribution) (count degree-distribution)))}))
+     :avg-out-degree (float (/ (reduce #(+ %1 (:out-degree %2)) 0 degree-distribution) (count degree-distribution)))
+     :variance (variance (map :in-degree degree-distribution))}))
 
 (defn average-of-average-degree-distribution [average-degrees]
   {:avg-avg-in-degree (float (/ (reduce #(+ %1 (:avg-in-degree %2)) 0 average-degrees) (count average-degrees)))
-   :avg-avg-out-degree (float (/ (reduce #(+ %1 (:avg-out-degree %2)) 0 average-degrees) (count average-degrees)))})
+   :avg-avg-out-degree (float (/ (reduce #(+ %1 (:avg-out-degree %2)) 0 average-degrees) (count average-degrees)))
+   :avg-variance (float (/ (reduce #(+ %1 (:variance %2)) 0 average-degrees) (count average-degrees)))})
 
 (defn pick-peers [number-peers]
   (repeatedly number-peers #(let [streams (pick-streams number-peers)]
@@ -132,7 +135,8 @@
     (write-string-f (str "Number of iterations: " number-iterations))
     (write-string-f (str "Average degree distributions: \n"
                          "\t average-out-degree: " (:avg-avg-out-degree (:avg-degrees calcs)) "\n"
-                         "\t average-in-degree: " (:avg-avg-in-degree (:avg-degrees calcs))))
+                         "\t average-in-degree: " (:avg-avg-in-degree (:avg-degrees calcs))
+                          "\t average variance: " (:avg-variance (:avg-degrees calcs))))
     (write-string-f (str "Average shortest path: " (:average-shortest-path calcs)))
     (write-string-f (str "All connected: " (:all-connected calcs)))))
 
