@@ -1,0 +1,21 @@
+Number of peers: 1097
+Number of iterations: 100
+Average degree distributions: 
+	 average-out-degree: 0.14274788
+	 average-in-degree: 0.14274788
+Average shortest path: 1.0
+All connected: true
+Number of peers: 1097
+Number of iterations: 100
+Average degree distributions: 
+	 average-out-degree: 0.14272042
+	 average-in-degree: 0.14272042
+Average shortest path: 1.0
+All connected: true
+Number of peers: 1097
+Number of iterations: 100
+Average degree distributions: 
+	 average-out-degree: 0.14269847
+	 average-in-degree: 0.14269845
+Average shortest path: 1.0
+All connected: true

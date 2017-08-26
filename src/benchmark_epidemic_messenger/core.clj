@@ -32,9 +32,6 @@
 (defn get-info [messenger]
   (epm/info messenger))
 
-(defn write-string [file-name s]
-  (spit file-name (str s "\n") :append true)
-  )
 
 (defn create-graph [peer-set]
   (reduce #(conj %1 [ (keyword (str (:publisher-stream %2))) (keyword (str (:subscriber-stream %2))) 1]) [] peer-set))
@@ -96,9 +93,51 @@
   (float (/ (reduce + (flatten-tree graph)) count)))
 
 
+(defn connectivity? [peers]
+  (let [publisher-stream-set (reduce #(conj %1 (:publisher-stream %2)) #{} peers)
+        subscriber-stream-set (reduce #(conj %1 (:subscriber-stream %2)) #{} peers)]
+    (= publisher-stream-set subscriber-stream-set)))
+
+
+
+(defn generate-peers [n-peers]
+  (repeatedly n-peers #(let [streams (pick-streams n-peers)]
+                         {:publisher-stream (first streams) :subscriber-stream (second streams)})))
+
+(defn create-digraph [number-peers]
+  (apply weighted-digraph (create-graph (set (generate-peers number-peers)))))
+
+(defn do-calculations [number-peers number-iterations]
+  (let [average-degrees (repeatedly number-iterations #(average-degree-distribution (generate-peers number-peers)))
+        avg-of-avg-degrees (average-of-average-degree-distribution average-degrees)
+        ; graph (apply weighted-digraph (create-graph (set peers)))
+        average-shortest-paths (repeatedly number-peers #(let [digraph (create-digraph number-peers)]
+                                                           (average-shortest-path (all-pairs-shortest-paths digraph)
+                                                                                  (count (edges digraph)))))
+        average-shortest-path (float (/ (reduce #(+ %1 %2) 0 average-shortest-paths) (count average-shortest-paths)))
+        connected (every? true? (repeatedly number-peers #(connectivity? (generate-peers number-peers))))]
+    {:avg-degrees avg-of-avg-degrees
+     :average-shortest-path average-shortest-path
+     :all-connected connected}))
+
+(defn write-string [file-name s]
+  (spit file-name (str s "\n") :append true)
+  )
+
+(defn write-calcs [number-peers number-iterations calcs]
+  (println calcs)
+  (let [file-name (str number-peers "-peers-" number-iterations "-iterations-.txt")
+        write-string-f (partial write-string file-name)]
+    (write-string-f (str "Number of peers: " number-peers ""))
+    (write-string-f (str "Number of iterations: " number-iterations))
+    (write-string-f (str "Average degree distributions: \n"
+                         "\t average-out-degree: " (:avg-avg-out-degree (:avg-degrees calcs)) "\n"
+                         "\t average-in-degree: " (:avg-avg-in-degree (:avg-degrees calcs))))
+    (write-string-f (str "Average shortest path: " (:average-shortest-path calcs)))
+    (write-string-f (str "All connected: " (:all-connected calcs)))))
 
 (defn -main [& args]
-  (println "args: " args)
+  (println "Args: " (first args))
   (let [peer-config {:onyx.messaging.aeron/embedded-driver? true
                      :onyx.messaging.aeron/embedded-media-driver-threading :shared
                      :onyx.messaging/peer-port 40199
@@ -114,21 +153,34 @@
     ;    messenger-list (doall (map #(build-aeron-epidemic-messenger peer-config nil nil %) epidemic-channels))
     ;    write-info (partial write-string "55-peers.txt")
         ;_ (println "Messenger-list: " messenger-list)
+        number-peers (Integer/parseInt (first args))
+        number-iterations (Integer/parseInt (second args))
 
-        peers (repeatedly 100 #(let [streams (pick-streams 10000)]
-                                 {:publisher-stream (first streams) :subscriber-stream (second streams)}))
-        average-degrees (repeatedly 100 #(average-degree-distribution (pick-peers 100)))
-        avg-of-avg-degrees (average-of-average-degree-distribution average-degrees)
+        ;peers (generate-peers number-peers)
+        ;average-degrees (repeatedly number-iterations #(average-degree-distribution (generate-peers number-peers)))
 
-        graph (apply weighted-digraph (create-graph (set peers)))
+        ;avg-of-avg-degrees (average-of-average-degree-distribution average-degrees)
+
+       ; graph (apply weighted-digraph (create-graph (set peers)))
+        ;average-shortest-paths (repeatedly number-peers #(let [digraph (create-digraph number-peers)]
+                                                   ;(average-shortest-path (all-pairs-shortest-paths digraph)
+                                                   ;                       (count (edges digraph)))))
+        ;average-shortest-path (float (/ (reduce #(+ %1 %2) 0 average-shortest-paths) (count average-shortest-paths)))
+        calcs (do-calculations number-peers number-iterations)
         ]
     ;(println "Average degree distribution: " average-degrees)
     ;(println "Average average in degree: " avg-of-avg-degrees)
-    (println "PEERS: " peers)
-    (println "GRAPH: " graph)
-    (view graph)
-    (println "SHORTEST PAIR GRAPH: : " (average-shortest-path (all-pairs-shortest-paths graph) (count (edges graph))))
-    (println "GRAPH OF PEERS: " (create-graph (set peers)))
+    ;(println "PEERS: " peers)
+    (write-calcs number-peers number-iterations calcs)
+    ;(println "Connectivity: " (connectivity? peers))
+    ;(println "GRAPH: " graph)
+    ;(view graph)
+    ;(println "average-degrees: " average-degrees)
+    ;(println "Average-of-average-degrees: " avg-of-avg-degrees)
+    ;(println "average-shortest-paths: : " average-shortest-paths)
+    ;(println "Average-shortest-path: " average-shortest-path)
+    ;(println "GRAPH OF PEERS: " (create-graph (set peers)))
+    ;(println "do-calculations: " (do-calculations number-peers number-iterations))
     ;(doall (map (partial write-string "degree-distribution.txt") degree-distribution))
 
 

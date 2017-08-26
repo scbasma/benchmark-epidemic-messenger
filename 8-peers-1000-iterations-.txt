@@ -1,0 +1,7 @@
+Number of peers: 8
+Number of iterations: 1000
+Average degree distributions: 
+	 average-out-degree: 0.43228126
+	 average-in-degree: 0.43228126
+Average shortest path: 1.0
+All connected: true

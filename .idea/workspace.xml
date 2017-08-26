@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c8ec2ec-7f92-44b8-8dbf-1c086e6f252d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.clj" afterPath="$PROJECT_DIR$/project.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/run_messenger.sh" afterPath="$PROJECT_DIR$/scripts/run_messenger.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj" afterPath="$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,8 +27,8 @@
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2304">
-              <caret line="128" column="3" lean-forward="false" selection-start-line="128" selection-start-column="3" selection-end-line="128" selection-end-column="3" />
+            <state relative-caret-position="1098">
+              <caret line="166" column="51" lean-forward="false" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -527,8 +524,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2304">
-          <caret line="128" column="3" lean-forward="false" selection-start-line="128" selection-start-column="3" selection-end-line="128" selection-end-column="3" />
+        <state relative-caret-position="1098">
+          <caret line="166" column="51" lean-forward="false" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
           <folding />
         </state>
       </provider>
