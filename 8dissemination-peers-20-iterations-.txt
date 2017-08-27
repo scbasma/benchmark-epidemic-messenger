@@ -1,0 +1,20 @@
+Number of peers: 8
+Number of iterations: 20
+TTL: 1
+stat-list: clojure.lang.LazySeq@c1e65
+Averages: {:avg-dissemination-coverage 0.6125, :avg-redundant-vs-total 0.5}
+Number of peers: 8
+Number of iterations: 20
+TTL: 2
+stat-list: clojure.lang.LazySeq@29fc4865
+Averages: {:avg-dissemination-coverage 1.0, :avg-redundant-vs-total 0.70361483}
+Number of peers: 8
+Number of iterations: 20
+TTL: 3
+stat-list: clojure.lang.LazySeq@7df26682
+Averages: {:avg-dissemination-coverage 1.0, :avg-redundant-vs-total 0.8582553}
+Number of peers: 8
+Number of iterations: 20
+TTL: 4
+stat-list: clojure.lang.LazySeq@2cff70a
+Averages: {:avg-dissemination-coverage 0.95625, :avg-redundant-vs-total 0.8897452}

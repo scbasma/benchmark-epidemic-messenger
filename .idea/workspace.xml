@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c8ec2ec-7f92-44b8-8dbf-1c086e6f252d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/benchmark_epidemic_messenger/stream_pool_analysis.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/149-peers-1000-iterations-.txt" afterPath="$PROJECT_DIR$/149-peers-1000-iterations-.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/21-peers-1000-iterations-.txt" afterPath="$PROJECT_DIR$/21-peers-1000-iterations-.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/55-peers-1000-iterations-.txt" afterPath="$PROJECT_DIR$/55-peers-1000-iterations-.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/8-peers-1000-iterations-.txt" afterPath="$PROJECT_DIR$/8-peers-1000-iterations-.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmark-epidemic-messenger.iml" afterPath="$PROJECT_DIR$/benchmark-epidemic-messenger.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj" afterPath="$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/project.clj">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+              <caret line="10" column="55" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -27,8 +34,28 @@
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="166" column="51" lean-forward="false" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
+            <state relative-caret-position="522">
+              <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stream_pool_analysis.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/stream_pool_analysis.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="benchmark-epidemic-messenger.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/benchmark-epidemic-messenger.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,6 +113,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -102,6 +136,7 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/scripts/run_messenger.sh" />
         <option value="$PROJECT_DIR$/project.clj" />
+        <option value="$PROJECT_DIR$/src/benchmark_epidemic_messenger/stream_pool_analysis.clj" />
         <option value="$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj" />
       </list>
     </option>
@@ -187,6 +222,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../onyx-docker" />
+    <property name="cursive.last.file.extension./home/basma/Development/benchmark-epidemic-messenger/src" value="clj" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -514,18 +550,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/benchmark-epidemic-messenger.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <caret line="10" column="55" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/stream_pool_analysis.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/benchmark_epidemic_messenger/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="166" column="51" lean-forward="false" selection-start-line="166" selection-start-column="51" selection-end-line="166" selection-end-column="51" />
+        <state relative-caret-position="522">
+          <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
           <folding />
         </state>
       </provider>

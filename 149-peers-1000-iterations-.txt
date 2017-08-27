@@ -5,3 +5,10 @@ Average degree distributions:
 	 average-in-degree: 0.19876722
 Average shortest path: 1.0014129
 All connected: true
+Number of peers: 149
+Number of iterations: 1000
+Average degree distributions: 
+	 average-out-degree: 0.19860575
+	 average-in-degree: 0.19860575	 average variance: 0.001047802
+Average shortest path: 1.0007064
+All connected: true
